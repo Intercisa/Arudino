@@ -170,29 +170,31 @@ boolean isBirbiBdayYet() {
 
 
 void setBacklightBoolOnAndOff() {
+
+  String strMinutes;
   String strHour;
   char bufHour[10];
+  char bufMinutes[10];
 
-  sprintf(bufHour, "%.2d",
-          hour(t));
-  strHour = String(bufHour);
-  int intHour = strHour.toInt();
-
+  sprintf(bufHour, "%.2d",hour(t));
+  sprintf(bufMinutes, "%.2d",minute(t));
   
-  if (intHour == backLightONHour)
+  strHour = String(bufHour);
+  strMinutes = String(bufMinutes);
+  
+  int intHour = strHour.toInt();
+  int intMinutes = strMinutes.toInt();
+  
+  if (intHour == backLightONHour && intMinutes == 30)
     isBacklightOn = true;
-  else if (intHour == backLightOFFHour)
+  else if (intHour == backLightOFFHour && intMinutes == 1)
     isBacklightOn = false;
    
-
   }
 
 
 void turnOnAndOffBackLigth() {
-  if (isBacklightOn == true)
-    lcd.backlight();
-  else
-    lcd.noBacklight();
+  isBacklightOn?lcd.backlight():lcd.noBacklight();
 }
 
 

@@ -1,3 +1,10 @@
+/*
+*latest modification 2020.04.18.
+*Sipiczki Barna
+*
+*/
+
+
 #include "bday_config.h"
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
